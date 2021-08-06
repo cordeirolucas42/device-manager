@@ -1,0 +1,26 @@
+{
+  "name": "device-manager",
+  "version": "1.0.0",
+  "description": "Device Manager App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cordeirolucas42/device-manager.git"
+  },
+  "author": "Lucas Cordeiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cordeirolucas42/device-manager/issues"
+  },
+  "homepage": "https://github.com/cordeirolucas42/device-manager#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5"
+  }
+}
