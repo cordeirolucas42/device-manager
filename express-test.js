@@ -1,6 +1,6 @@
 // ssh -i "device-manager.pem" ec2-user@ec2-54-94-254-219.sa-east-1.compute.amazonaws.com
 // sudo "$(which node)" express-test.js
-// nohup node test1.js
+// nohup node express-test.js
 // rm nohup.out
 // ps -ef
 // kill [process num]
