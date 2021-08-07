@@ -71,7 +71,7 @@ const main = async () => {
     try {
         await sequelize.sync({ force: true });
         console.log("All models were synchronized successfully.");
-        const tablet = await Category.create({ name: "Tablet" })
+        const tablet = await Category.create({ name: "Smartphone" })
         console.log(tablet.toJSON())
     } catch (error) {
         console.error('Unable to connect to the database:', error);

@@ -1,4 +1,5 @@
 // ssh -i "device-manager.pem" ec2-user@ec2-54-94-254-219.sa-east-1.compute.amazonaws.com
+// mysql -h cordeirolucas42.cxpqrbghq6gw.sa-east-1.rds.amazonaws.com -P 3306 -u admin -p
 // sudo "$(which node)" express-test.js
 // https://medium.com/cs-note/setup-node-and-express-on-aws-ec2-windows-7-8cb499ab14eb
 // Using pm2 to handle the application https://www.npmjs.com/package/pm2
