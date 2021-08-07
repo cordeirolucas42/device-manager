@@ -1,7 +1,9 @@
+// ALREADY ADDED 1 CATEGORY NAMED TABLET
+
 require('dotenv').config(); //process.env. to use enviroment variables
 const { Sequelize, DataTypes, Model } = require('sequelize');
 
-const sequelize = new Sequelize('cordeirolucas42', 'cordeirolucas42', process.env.DB_PASS, {
+const sequelize = new Sequelize('devices_manager', 'admin', process.env.DB_PASS, {
     // the sql dialect of the database
     // currently supported: 'mysql', 'sqlite', 'postgres', 'mssql'
     dialect: 'mysql',
