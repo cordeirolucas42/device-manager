@@ -6,7 +6,12 @@ const app = express()
 const port = 9000
 
 app.get('/:user', (req, res) => {
-  res.send(`Olá, ${req.params.user}! Bem-vinde!`)
+    if (req.params.user) {
+        res.send(`Olá, ${req.params.user}! Bem-vinde!`)
+    } else {
+        res.send(`Olá! Bem-vinde!`)
+    }
+  
 })
 
 app.listen(port, () => {
