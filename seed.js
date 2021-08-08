@@ -1,5 +1,3 @@
-// ALREADY ADDED 1 CATEGORY NAMED TABLET
-
 require('dotenv').config(); //process.env. to use enviroment variables
 const { Sequelize, DataTypes, Model } = require('sequelize');
 
@@ -8,7 +6,7 @@ const sequelize = new Sequelize('devices_manager', 'admin', process.env.DB_PASS,
     // currently supported: 'mysql', 'sqlite', 'postgres', 'mssql'
     dialect: 'mysql',
     // custom host; default: localhost
-    host: process.env.DP_ENDPOINT,
+    host: process.env.DB_ENDPOINT,
     // custom port; default: dialect default
     port: process.env.DB_PORT
 });
@@ -39,13 +37,6 @@ Device.init({
         primaryKey: true,
         unique: true
     },
-    category: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: Category,
-            key: "id"
-        }
-    },
     color: {
         type: DataTypes.STRING(16),
         allowNull: false,
@@ -65,14 +56,61 @@ Device.init({
     sequelize, // We need to pass the connection instance
     modelName: 'Device' // We need to choose the model name
 });
+Category.hasMany(Device, {foreignKey: "category"})
+Device.belongsTo(Category)
+
+const mockCategories = [
+    { name: 'Smartphone' },
+    { name: 'Tablet' },
+    { name: 'iPhone' },
+    { name: 'SmartTV' },
+    { name: 'Laptop' },
+    { name: 'Desktop' },
+    { name: 'Mac Book' },
+]
+
+const mockDevices = [
+    {
+        category: 1,
+        color: 'pink',
+        partNumber: 4286,
+    },
+    {
+        category: 1,
+        color: 'brown',
+        partNumber: 6434,
+    },
+    {
+        category: 3,
+        color: 'black',
+        partNumber: 2345,
+    },
+    {
+        category: 4,
+        color: 'opal',
+        partNumber: 8678,
+    },
+]
 
 const main = async () => {
     // Sycronize JavaSvript models with MySQL tables
     try {
         await sequelize.sync({ force: true });
         console.log("All models were synchronized successfully.");
-        const tablet = await Category.create({ name: "Smartphone" })
-        console.log(tablet.toJSON())
+        let currentEntry = null
+        for (category of mockCategories) {
+            currentEntry = await Category.create(category)
+            // console.log(`Registrado com sucesso: ${currentEntry.toJSON()}`)
+            console.log(currentEntry.toJSON())
+        }
+        console.log("Seed categories registered successfully!")
+        for (device of mockDevices) {
+            currentEntry = await Device.create(device)
+            // console.log(`Registrado com sucesso: ${currentEntry.toJSON()}`)
+            console.log(currentEntry.toJSON())
+        }
+        console.log("Seed devices registered successfully!")
+
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }
