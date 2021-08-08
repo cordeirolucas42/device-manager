@@ -81,16 +81,16 @@ app.get('/category/:id', async (req, res) => {
 
 app.get('/device/:id', async (req, res) => {
     if (req.params.id) {
-        // const device = await Device.findByPk(req.params.id, {include: Category})
-        // if (device) res.send(`Device with id ${device.id} from category ${device.category}, color ${device.color} and part number ${device.partNumber}.`)
+        const device = await Device.findByPk(req.params.id, {include: Category})
+        if (device) res.send(`Device with id ${device.id} from category ${device.Category.name}, color ${device.color} and part number ${device.partNumber}.`)
 
-        const device = await Device.findByPk(req.params.id)
+        /* const device = await Device.findByPk(req.params.id)
         if (device) {
             const category = await Category.findByPk(device.category)
             if (category) {
                 res.send(`Device with id ${device.id} from category ${category.name}, color ${device.color} and part number ${device.partNumber}.`)
             }            
-        }
+        } */
     } else {
         res.send(`Device not found`)
     }

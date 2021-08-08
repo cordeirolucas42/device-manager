@@ -56,7 +56,7 @@ Device.init({
     sequelize, // We need to pass the connection instance
     modelName: 'Device' // We need to choose the model name
 });
-Category.hasMany(Device, {foreignKey: "category"})
+Category.hasMany(Device)
 Device.belongsTo(Category)
 
 const mockCategories = [
@@ -71,22 +71,22 @@ const mockCategories = [
 
 const mockDevices = [
     {
-        category: 1,
+        CategoryId: 1,
         color: 'pink',
         partNumber: 4286,
     },
     {
-        category: 1,
+        CategoryId: 1,
         color: 'brown',
         partNumber: 6434,
     },
     {
-        category: 3,
+        CategoryId: 3,
         color: 'black',
         partNumber: 2345,
     },
     {
-        category: 4,
+        CategoryId: 4,
         color: 'opal',
         partNumber: 8678,
     },
