@@ -59,7 +59,7 @@ const app = express()
 var cors = require('cors')
 app.use(express.json())
 app.use(cors())
-const port = 443
+const port = 80
 
 // API ENDPOINTS
 // HOME '/' REDIRECT TO DEVICES
