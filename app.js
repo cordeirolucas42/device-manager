@@ -56,7 +56,9 @@ Device.belongsTo(Category)
 // CONFIGURE EXPRESS APP
 const express = require('express')
 const app = express()
+var cors = require('cors')
 app.use(express.json())
+app.use(cors())
 const port = 9000
 
 // API ENDPOINTS
