@@ -55,18 +55,18 @@ Device.belongsTo(Category)
 
 // CONFIGURE EXPRESS APP
 const express = require('express')
-const https = require('https');
-const http = require('http');
-const fs = require('fs');
+// const https = require('https');
+// const http = require('http');
+// const fs = require('fs');
 const app = express()
 var cors = require('cors')
 app.use(express.json())
 app.use(cors())
 // const port = 80
-const options = {
-    key: fs.readFileSync('./https-key.key'),
-    cert: fs.readFileSync('./https-cert.pem')
-};
+// const options = {
+//     key: fs.readFileSync('./https-key.key'),
+//     cert: fs.readFileSync('./https-cert.pem')
+// };
 
 // API ENDPOINTS
 // HOME '/' REDIRECT TO DEVICES
