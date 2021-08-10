@@ -1,6 +1,6 @@
 node_modules
 .env
 device-manager.pem
-example.crt
-example.key
-example.pem
+https-certificate.crt
+https-certificate.key
+https-certificate.pem
