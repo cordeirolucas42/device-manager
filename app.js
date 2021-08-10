@@ -55,11 +55,18 @@ Device.belongsTo(Category)
 
 // CONFIGURE EXPRESS APP
 const express = require('express')
+const https = require('https');
+const http = require('http');
+const fs = require('fs');
 const app = express()
 var cors = require('cors')
 app.use(express.json())
 app.use(cors())
-const port = 80
+// const port = 80
+const options = {
+    key: fs.readFileSync('./https-key.key'),
+    cert: fs.readFileSync('./https-cert.pem')
+};
 
 // API ENDPOINTS
 // HOME '/' REDIRECT TO DEVICES
@@ -166,7 +173,10 @@ app.delete('/categories/:id', async (req, res) => {
     }
 })
 
-// START SERVER
-app.listen(port, () => {
-    console.log(`Server listening at http://ec2-54-94-254-219.sa-east-1.compute.amazonaws.com:${port}`)
-})
+// // START SERVER
+// app.listen(port, () => {
+//     console.log(`Server listening at http://ec2-54-94-254-219.sa-east-1.compute.amazonaws.com:${port}`)
+// })
+
+http.createServer(app).listen(9000);
+https.createServer(options, app).listen(443);
