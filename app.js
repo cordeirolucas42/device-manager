@@ -173,10 +173,10 @@ app.delete('/categories/:id', async (req, res) => {
     }
 })
 
-// // START SERVER
-// app.listen(port, () => {
-//     console.log(`Server listening at http://ec2-54-94-254-219.sa-east-1.compute.amazonaws.com:${port}`)
-// })
+// START SERVER
+app.listen(process.env.PORT, () => {
+    console.log(`Server listening at Port ${process.env.PORT}`)
+})
 
-http.createServer(app).listen(9000);
-https.createServer(options, app).listen(443);
+// http.createServer(app).listen(9000);
+// https.createServer(options, app).listen(443);
