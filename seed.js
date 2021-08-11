@@ -72,22 +72,22 @@ const mockCategories = [
 const mockDevices = [
     {
         CategoryId: 1,
-        color: 'pink',
+        color: 'Pink',
         partNumber: 4286,
     },
     {
         CategoryId: 1,
-        color: 'brown',
+        color: 'Brown',
         partNumber: 6434,
     },
     {
         CategoryId: 3,
-        color: 'black',
+        color: 'Black',
         partNumber: 2345,
     },
     {
         CategoryId: 4,
-        color: 'opal',
+        color: 'Opal',
         partNumber: 8678,
     },
 ]
